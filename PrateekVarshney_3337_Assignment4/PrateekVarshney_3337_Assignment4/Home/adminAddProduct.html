@@ -1,0 +1,48 @@
+﻿
+<div class="row">
+    <div ng-if="!operationSuccessful" class="panel panel-primary col-md-8 col-md-offset-2">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{formTitle}}</h3>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="Name" ng-model="product.Name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input type="text" class="form-control" id="type" ng-model="product.type" placeholder="Type">
+                </div>
+                <div class="form-group">
+                    <label for="cost">Cost</label>
+                    <input type="number" class="form-control" id="Cost" ng-model="product.Cost" placeholder="Cost" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Discount</label>
+                    <input type="number" class="form-control" id="phone" ng-model="product.Discount" placeholder="Discount">
+                </div>
+                <div class="form-group">
+                    <label for="offer">Include in offers List </label>
+                    <input type="checkbox" style="margin-left:20px; height:20px; width:20px;" class="checkbox-inline" id="offer" ng-model="product.offer" placeholder="Include in offer list ?">
+                </div>
+                <div class="form-group">
+                    <label for="offer">Mark out of stock </label>
+                    <input type="checkbox" style="margin-left:20px; height:20px; width:20px;" class="checkbox-inline" id="offer" ng-model="product.outOfStock" placeholder="Include in offer list ?">
+                </div>
+                <div class="col-md-8 col-md-offset-0">
+                    <button ng-if="!isUpdate" ng-click="AddProduct()" ng-disabled="isValidated" style="margin:20px;" class="btn btn-primary btn-lg">Add Product</button>
+                    <button ng-click="Cancel()" style="margin:20px;" class="btn btn-primary btn-lg">Cancel</button>
+                    <button ng-if="isUpdate" ng-click="UpdateProduct()" ng-disabled="isValidated" style="margin:20px;" class="btn btn-primary btn-lg">Update</button>
+                    <button ng-if="isUpdate" ng-click="DeleteProduct()" style="margin:20px;" class="btn btn-primary btn-lg">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div ng-if="operationSuccessful" class="alert alert-success fade in col-md-6 col-md-offset-3">
+        <a href="#/" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> {{SuccessMessage}}
+    </div>
+</div>
+

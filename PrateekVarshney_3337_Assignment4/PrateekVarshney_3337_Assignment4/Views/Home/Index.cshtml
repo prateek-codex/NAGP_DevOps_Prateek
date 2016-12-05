@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Retail Management Landing Page";
+}
+
+<script src="~/Content/ExternalLibraries/angular.min.js"></script>
+<script src="~/Content/ExternalLibraries/angular-route.min.js"></script>
+<script src="~/Content/RetailManagement/retailManagementConfig.js"></script>
+<script src="~/Content/RetailManagement/retailManagementDataFactory.js"></script>
+<script src="~/Content/RetailManagement/retailManagementControllers.js"></script>
+
+<style type="text/css">
+    .btn-circle {
+        width: 250px;
+        height: 180px;
+        text-align: center;
+        font-size: x-large;
+        padding: 6px 0;
+        line-height: 150px;
+        border-radius: 120px;
+    }
+</style>
+
+
+    <div class="main" ng-app="retailManagementApp">
+
+        <div ng-controller="Index">
+
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 style="text-align:center;">Retail Management Landing Page</h1>
+                    <h3 style="text-align:center;">
+                        <a href="" ng-click="ShowAbout()" style="text-decoration:underline; margin-right:40px;">About</a>
+                        <a href="" ng-click="ShowHome()" style="text-decoration:underline; margin-right:40px;">Home</a>
+                        <a href="" ng-click="ShowContact()" style="text-decoration:underline;">Contact</a>
+                    </h3>
+                </div>
+            </div>
+
+            <div ng-if="visibleWindow=='About'" ng-include="'about.html'"></div>
+
+            <div ng-if="visibleWindow=='Contact'" ng-include="'contact.html'"></div>
+
+            <div ng-if="visibleWindow=='Default'">
+                <div id="container" style="text-align:center; margin-top:40px;">
+                    <a href="" ng-click="LoginAsUser()" class="btn btn-primary btn-circle">Login as User</a>
+                </div>
+
+                <div id="container" style="text-align:center; margin-top:40px;">
+                    <a href="" ng-click="LoginAsAdmin()" class="btn btn-primary btn-circle">Login as Admin</a>
+                </div>
+            </div>
+            
+            <div ng-if="visibleWindow=='userHome'" ng-include="'userHome.html'"></div>
+
+            <div ng-if="visibleWindow=='userSearch'" ng-include="'userSearch.html'"></div>
+
+            <div ng-if="visibleWindow=='adminAddProduct'" ng-include="'adminAddProduct.html'"></div>
+
+            <div ng-if="visibleWindow=='adminProductManagement'" ng-include="'adminProductManagement.html'"></div>
+        </div>
+    </div>
